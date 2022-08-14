@@ -1,0 +1,66 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Network setups vary a lot, so the details below help a lot.
+        **Redact anything you consider private**, such as public IP addresses or company VPN names.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: App version
+      description: From IPv6 Switch → About IPv6 Switch
+      placeholder: "0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      placeholder: "macOS 15.3 (Apple silicon)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: connection
+    attributes:
+      label: Connection type
+      multiple: true
+      options:
+        - Wi-Fi
+        - Ethernet / USB adapter
+        - iPhone tethering
+        - VPN connected
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: route
+    attributes:
+      label: Output of `route -n get default`
+      render: text
+
+  - type: textarea
+    id: services
+    attributes:
+      label: Output of `networksetup -listnetworkserviceorder`
+      render: text
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: A screenshot of the app window, with IP addresses blurred.
